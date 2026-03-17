@@ -3,32 +3,29 @@ import java.util.*;
 class PalindromeCheckerApp {
     
     // Recursive function
-    static boolean isPalindrome(String str, int start, int end) {
-        
-        // Base condition
-        if (start >= end) {
-            return true;
-        }
-        
-        // Check characters
-        if (str.charAt(start) != str.charAt(end)) {
-            return false;
-        }
-        
-        // Recursive call
-        return isPalindrome(str, start + 1, end - 1);
-    }
-
     public static void main(String[] args) {
-        
-        String str = "madam";  // Hardcoded string
-        
-        boolean result = isPalindrome(str, 0, str.length() - 1);
-        
-        if (result) {
-            System.out.println("The string " + str + " is a palindrome.");
-        } else {
-            System.out.println("The string " + str + " is not a palindrome.");
+    
+    String str = "Madam In Eden";
+    
+    str = str.replaceAll("\\s+", "").toLowerCase();
+    
+    int start = 0;
+    int end = str.length() - 1;
+    boolean isPalindrome = true;
+    
+    while (start < end) {
+        if (str.charAt(start) != str.charAt(end)) {
+            isPalindrome = false;
+            break;
         }
+        start++;
+        end--;
     }
+    
+    if (isPalindrome) {
+        System.out.println("The given string is a palindrome (ignoring spaces and case).");
+    } else {
+        System.out.println("The given string is not a palindrome.");
+    }
+}
 }
